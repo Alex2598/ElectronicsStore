@@ -1,0 +1,51 @@
+﻿@using Store.Web.Models
+@model IEnumerable<ApplicationRole>
+@addTagHelper Store.Web.TagHelpers.*, Store.Web
+
+<h2>Роли пользователей</h2>
+<form class="row g-3" method="post">
+    <div class="col-auto">
+        <input type="text" readonly class="form-control-plaintext" id="roleLabel" value="Роль">
+    </div>
+    <div class="col-auto">
+        <input type="text" class="form-control" name="roleName" id="roleName" placeholder="Название роли...">
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-3">Добавить</button>
+    </div>
+</form>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Имя</th>
+            <th scope="col">Пользователи</th>
+            <th scope="col">Редактировать</th>
+            <th scope="col">Удалить</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td u-role="@item.Id"></td>
+                <td>
+                    <a class="btn btn-sm btn-secondary" asp-action="Update" asp-route-id="@item.Id">Update</a>
+                </td>
+                <td>
+                    <form asp-action="Delete" asp-route-id="@item.Id" method="post">
+                        <button type="submit" class="btn btn-sm btn-danger">
+                            Delete
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

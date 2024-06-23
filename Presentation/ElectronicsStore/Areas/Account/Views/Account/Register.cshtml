@@ -1,0 +1,44 @@
+﻿@model RegisterModel
+
+@{
+    ViewData["Title"] = "Регистрация";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-controller="Account" asp-action="Register" method="post">
+    <div asp-validation-summary="All"></div>
+    <div>
+        <label class="form-label" asp-for="Login"></label>
+        <input class="form-control" name='Login' asp-for="Login" />
+       
+
+        <label class="form-label" asp-for="Email"></label>
+        <input class="form-control" name="Email" asp-for="Email" />
+       
+
+        <label class="form-label" asp-for="Organization"></label>
+        <input class="form-control" name="Organization" asp-for="Organization" />
+       
+
+        <label class="form-label" asp-for="Department"></label>
+        <input class="form-control" name="Department" asp-for="Department" />
+       
+
+        <label class="form-label" asp-for="Birthday"></label>
+        <input class="form-control" name="Birthday" asp-for="Birthday" type="date" />
+       
+
+        <label class="form-label" asp-for="Password"></label>
+        <input class="form-control" name="Password" asp-for="Password" type="password" />
+       
+
+        <label class="form-label" asp-for="ConfirmPassword"></label>
+        <input class="form-control" name="ConfirmPassword" asp-for="ConfirmPassword" type="password" />
+       
+
+        <br />
+        <button type="submit" class="btn btn-primary mb-3">Отправить</button>
+    </div>
+</form>
+

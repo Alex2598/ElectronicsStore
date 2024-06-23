@@ -1,0 +1,23 @@
+﻿@model LoginModel
+
+@{
+    ViewData["Title"] = "Вход в приложение";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-controller="Account" asp-action="SignIn" method="post">
+    <div asp-validation-summary="All"></div>
+    <div>
+        <label class="form-label" asp-for="Login"></label>
+        <input class="form-control" name='Login' asp-for="Login" />
+
+        <label class="form-label" asp-for="Password"></label>
+        <input class="form-control" name="Password" asp-for="Password" type="password" />
+
+        <br />
+        <button type="submit" class="btn btn-primary mb-3">Отправить</button>
+    </div>
+</form>
+
+<a href="/account/ForgotPassword">Сбросить пароль</a>

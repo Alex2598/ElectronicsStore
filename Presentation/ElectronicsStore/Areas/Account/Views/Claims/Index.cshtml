@@ -1,0 +1,36 @@
+﻿@model IEnumerable<System.Security.Claims.Claim>
+@{
+	ViewData["Title"] = "Утверждения";
+}
+
+<h2 class="bg-primary m-1 p-1 text-white">Утверждения</h2>
+
+<a asp-area="Account" asp-controller="Claims" asp-action="Create" class="btn btn-secondary">Добавить утверждение</a>
+
+<table class="table table-sm table-bordered">
+	<tr>
+		<th>Кому принадлежит</th>
+		<th>Эмитент</th>
+		<th>Тип</th>
+		<th>Значение</th>
+		<th>Удалить</th>
+	</tr>
+
+	@foreach (var claim in Model.OrderBy(x => x.Type))
+	{
+		<tr>
+			<td>@claim.Subject.Name</td>
+			<td>@claim.Issuer</td>
+			<td>@claim.Type</td>
+			<td>@claim.Value</td>
+			<td>
+				<form asp-action="Delete" method="post">
+					<input type="hidden" name="claimValues" value="@claim.Type;@claim.Value;@claim.Issuer" />
+					<button type="submit" class="btn btn-sm btn-danger">
+						Delete
+					</button>
+				</form>
+			</td>
+		</tr>
+	}
+</table>

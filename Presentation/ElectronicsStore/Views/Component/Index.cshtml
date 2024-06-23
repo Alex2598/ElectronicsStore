@@ -1,0 +1,15 @@
+﻿
+@model ComponentModel
+
+@{
+    ViewData["Title"] = Model.NameOfComponent;
+}
+
+<h1>@Model.NameOfComponent</h1>
+<p><strong>@Model.Package</strong></p>
+<p>@Model.Description</p>
+<p>Цена <strong>@Model.Price</strong></p>
+<form action="@Url.Action(nameof(OrderController.AddItem), "Order")" method="post">
+    <input type="hidden" name="componentId" value="@Model.Id" />
+    <button class="btn btn-success" type="submit">В корзину</button>
+</form>

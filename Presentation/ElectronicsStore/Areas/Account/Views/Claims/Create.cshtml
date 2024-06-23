@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Новое утверждение";
+}
+
+<h1 class="bg-primary text-white">Новое утверждение</h1>
+<a asp-area="Account" asp-controller="Claims" asp-action="Index" class="btn btn-secondary">Вернуться</a>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form method="post">
+    <div class="form-group">
+        <label for="ClaimType">Тип:</label>
+        <input name="ClaimType" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="ClaimValue">Значение:</label>
+        <input name="ClaimValue" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Создать</button>
+</form>

@@ -1,0 +1,18 @@
+﻿@using Store.Web.Models
+@model ApplicationUser
+
+@{
+    ViewData["Title"] = "Update user";
+}
+
+<h1 class="text-primary">Обновление настроек аккаунта</h1>
+<form asp-area="Account" asp-action="UpdateUser" asp-controller="Account" method="post">
+    <div class="form-check">
+        <input type="hidden" asp-for="@Model.Id" />
+        <input asp-for="@Model.TwoFactorEnabled" class="form-check-input" type="checkbox" id="twoFactorAuth">
+        <label class="form-check-label" for="twoFactorAuth">
+            Использовать двухфакторную аутентификацию
+        </label>
+        <br/>
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+</form>
